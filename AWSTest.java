@@ -135,6 +135,7 @@ class AWSTest {
 		
 		assertEquals(expectedCount, resultCount);
 		assertEquals(expected, resultValues[2]);
+		assertEquals(org[1], resultValues[1]);
 	}
 
 }
