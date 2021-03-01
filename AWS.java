@@ -36,7 +36,7 @@ public class AWS {
 	}
 
 	public void fillAndExpand(int position, int nt) {
-		int numberOfTimes = int;
+		int numberOfTimes = Math.abs(nt);
 		int[] newArray = new int[values.length + numberOfTimes];
 		for(int i = 0; i <=position; ++i) {
 			newArray[i] = values[i];
