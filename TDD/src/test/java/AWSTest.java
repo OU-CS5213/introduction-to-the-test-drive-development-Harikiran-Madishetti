@@ -166,7 +166,7 @@ public class AWSTest {
 	}
 	
 	@Test
-	void teststepMultiplier() {
+	public void testStepMultiplier() {
 		int[] x = {2, 15, 40};
 		AWS aws = new AWS(x);
 		int[] org = aws.getValues();
