@@ -1,4 +1,7 @@
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.Before;
 
@@ -16,17 +19,42 @@ public class AWSTest {
 
 	@Test
 	public void testGetValues() {
-		fail("Not yet implemented");
+		int[] x = {1,2,3};
+		
+		AWS aws = new AWS(x);
+		
+		int[] result = aws.getValues();
+		
+		assertEquals(result[0], x[0]);
 	}
 
 	@Test
 	public void testSetValues() {
-		fail("Not yet implemented");
+		int[] x = {1,2,3};
+		int[] y = {4,5,6};
+		
+		AWS aws = new AWS(x);
+		
+		aws.setValues(y);
+		
+		int[] result = aws.getValues();
+		
+		assertEquals(result[0], y[0]);
+		assertEquals(result[2], y[2]);
+		assertEquals(result.length, y.length);
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		int[] x = {1,2,3};
+		
+		AWS aws = new AWS(x);
+		
+		String expected = "AWS [values=[1, 2, 3]]";
+		
+		String result = aws.toString(); 
+		
+		assertEquals(expected, result);
 	}
 
 	@Test
