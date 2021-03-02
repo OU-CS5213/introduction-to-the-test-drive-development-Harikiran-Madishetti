@@ -143,8 +143,26 @@ public class AWSTest {
 		assertEquals(expectedValue, c);
 		 
 		assertEquals(first, result[0]);
-
+	}
 	
+		
+	@Test
+	public void testRemoveBiggerThan() {
+		int[] x = {1, 2, 3};
+		AWS aws = new AWS(x);
+		
+		int threshold = 2;
+		int[] org = aws.getValues();
+		int expectedCount = 1;
+		int expected = FILLER_VALUE;
+		
+		int resultCount = aws.removeBiggerThan(threshold);
+		
+		int[] resultValues = aws.getValues();
+		
+		assertEquals(expectedCount, resultCount);
+		assertEquals(expected, resultValues[2]);
+		assertEquals(org[1], resultValues[1]);
 	}
 
 }
