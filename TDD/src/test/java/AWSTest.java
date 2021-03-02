@@ -164,5 +164,22 @@ public class AWSTest {
 		assertEquals(expected, resultValues[2]);
 		assertEquals(org[1], resultValues[1]);
 	}
-
+	
+	@Test
+	void teststepMultiplier() {
+		int[] x = {2, 15, 40};
+		AWS aws = new AWS(x);
+		int[] org = aws.getValues();
+		
+		int expectedA = org[0]*2;
+		int expectedB = org[1]*4;
+		int expectedC = org[2]*100;
+		
+		aws.stepMultiplier();
+		int[] result = aws.getValues();
+		assertEquals(expectedA, result[0] );
+		assertEquals(expectedB, result[1] );
+		assertEquals(expectedC, result[2] );
+		
+	}
 }

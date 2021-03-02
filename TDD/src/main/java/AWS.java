@@ -69,4 +69,9 @@ public class AWS {
 		return count;
 	}
 
+	public void stepMultiplier() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
