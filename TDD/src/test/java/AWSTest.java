@@ -1,36 +1,64 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import java.util.Arrays;
 
-class AWSTest {
+import org.junit.Test;
+import org.junit.Before;
+
+
+public class AWSTest {
 
 	private static final int FILLER_VALUE = Integer.MIN_VALUE;
 	private int[] original={1, 2, 3};
 	AWS originalAWS;
 	
-	@BeforeEach
-	void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		 originalAWS = new AWS(this.original);
 	}
 
 	@Test
-	void testGetValues() {
-		fail("Not yet implemented");
+	public void testGetValues() {
+		int[] x = {1,2,3};
+		
+		AWS aws = new AWS(x);
+		
+		int[] result = aws.getValues();
+		
+		assertEquals(result[0], x[0]);
 	}
 
 	@Test
-	void testSetValues() {
-		fail("Not yet implemented");
+	public void testSetValues() {
+		int[] x = {1,2,3};
+		int[] y = {4,5,6};
+		
+		AWS aws = new AWS(x);
+		
+		aws.setValues(y);
+		
+		int[] result = aws.getValues();
+		
+		assertEquals(result[0], y[0]);
+		assertEquals(result[2], y[2]);
+		assertEquals(result.length, y.length);
 	}
 
 	@Test
-	void testToString() {
-		fail("Not yet implemented");
+	public void testToString() {
+		int[] x = {1,2,3};
+		
+		AWS aws = new AWS(x);
+		
+		String expected = "AWS [values=[1, 2, 3]]";
+		
+		String result = aws.toString(); 
+		
+		assertEquals(expected, result);
 	}
 
 	@Test
-	void testAWS() {
+	public void testAWS() {
 		int[] expected = {1, 2, 3};
 		int[] x = {1, 2, 3};
 		AWS aws = new AWS(x);
@@ -42,7 +70,7 @@ class AWSTest {
 	}
 	
 	@Test
-	void testRemove() {
+	public void testRemove() {
 		int[] x = {1, 2, 3};
 		AWS aws = new AWS(x);
 		
@@ -71,7 +99,7 @@ class AWSTest {
 	}
 	
 	@Test
-	void testFillAndExpand() {
+	public void testFillAndExpand() {
 		int position = 1;
 		int numberOfTimes = 2;
 		int[] org = originalAWS.getValues();
@@ -95,7 +123,7 @@ class AWSTest {
 	
 	}
 	@Test
-	void testFillAndExpandWithNegative() {
+	public void testFillAndExpandWithNegative() {
 		int position = 1;
 		int numberOfTimes = -2;
 		
@@ -115,12 +143,11 @@ class AWSTest {
 		assertEquals(expectedValue, c);
 		 
 		assertEquals(first, result[0]);
-
-	
 	}
 	
+		
 	@Test
-	void testremoveBiggerThan() {
+	public void testRemoveBiggerThan() {
 		int[] x = {1, 2, 3};
 		AWS aws = new AWS(x);
 		
@@ -139,7 +166,7 @@ class AWSTest {
 	}
 	
 	@Test
-	void teststepMultiplier() {
+	public void testStepMultiplier() {
 		int[] x = {2, 15, 40};
 		AWS aws = new AWS(x);
 		int[] org = aws.getValues();
@@ -155,5 +182,4 @@ class AWSTest {
 		assertEquals(expectedC, result[2] );
 		
 	}
-
 }
