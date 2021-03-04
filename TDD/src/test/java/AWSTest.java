@@ -25,7 +25,7 @@ public class AWSTest {
 		
 		int[] result = aws.getValues();
 		
-		assertEquals(result[0], x[0]);
+		assertEquals(result[0], x[1]);
 	}
 
 	@Test
